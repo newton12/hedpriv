@@ -4,8 +4,8 @@ setup(
     name="hedpriv",
     version="0.1.0",
     description="HEDPriv: Hybrid Encryption and Differential Privacy Framework",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Samuel Selasi",
+    author_email="sskporvie001@st.ug.edu.gh",
     packages=find_packages(),
     install_requires=[
         "numpy>=1.24.3",
