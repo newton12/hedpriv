@@ -33,7 +33,7 @@ class CKKSEncryptor:
         
     def create_context(self):
         """Create TenSEAL context with CKKS scheme"""
-        print("\\n=== Creating CKKS Context ===")
+        print("\n=== Creating CKKS Context ===")
         print(f"Polynomial modulus degree: {self.poly_modulus_degree}")
         print(f"Coefficient modulus bit sizes: {self.coeff_mod_bit_sizes}")
         print(f"Global scale: 2^{int(np.log2(self.global_scale))}")
@@ -52,8 +52,8 @@ class CKKSEncryptor:
         self.context.generate_galois_keys()
         
         print("CKKS context created successfully")
-        print(f"Security level: {self.context.security_level} bits")
-        print("=== Context Setup Complete ===\\n")
+        # Removed problematic access to security_level
+        print("=== Context Setup Complete ===\n")
         
         return self.context
     
@@ -89,7 +89,7 @@ class CKKSEncryptor:
         if self.context is None:
             raise ValueError("Context not initialized. Call create_context() first.")
         
-        print(f"\\nEncrypting dataset with shape {data.shape}...")
+        print(f"\nEncrypting dataset with shape {data.shape}...")
         start_time = time.time()
         
         encrypted_vectors = []
@@ -129,7 +129,7 @@ class CKKSEncryptor:
         Returns:
             Encrypted sum vector
         """
-        print(f"\\nComputing encrypted sum of {len(encrypted_vectors)} vectors...")
+        print(f"\nComputing encrypted sum of {len(encrypted_vectors)} vectors...")
         start_time = time.time()
         
         # Start with the first vector
@@ -186,7 +186,7 @@ class CKKSEncryptor:
         if encrypted_mean_vec is None:
             encrypted_mean_vec = self.encrypted_mean(encrypted_vectors)
         
-        print(f"\\nComputing encrypted variance...")
+        print(f"\nComputing encrypted variance...")
         
         # Compute squared differences
         squared_diffs = []
@@ -211,7 +211,7 @@ class CKKSEncryptor:
             "poly_modulus_degree": self.poly_modulus_degree,
             "coeff_mod_bit_sizes": self.coeff_mod_bit_sizes,
             "global_scale": self.global_scale,
-            "security_level": self.context.security_level
+            # "security_level": self.context.security_level  <-- REMOVED THIS
         }
 
 
@@ -237,6 +237,6 @@ if __name__ == "__main__":
     # Compare with plaintext
     plaintext_mean = data.mean(axis=0)
     
-    print(f"\\nPlaintext mean: {plaintext_mean}")
+    print(f"\nPlaintext mean: {plaintext_mean}")
     print(f"Decrypted mean: {decrypted_mean}")
     print(f"Difference: {np.abs(plaintext_mean - decrypted_mean)}")
