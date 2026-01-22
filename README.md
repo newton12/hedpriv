@@ -200,7 +200,7 @@ If you use this framework in your research, please cite:
 ```bibtex
 @mastersthesis{hedpriv2025,
   title={HEDPriv: A Hybrid Framework for Privacy-Preserving Data Analytics},
-  authors={},
+  authors={Wilberforce Donkor},
   year={2026},
   school={University of Ghana},
   type={MPhil Thesis}
@@ -211,7 +211,7 @@ If you use this framework in your research, please cite:
 
 - **Authors**: 
 - **Email**: 
-- **GitHub**: [Samuel Selasi](https://github.com/samuelselasi)
+- **GitHub**: [Wilberforce Donkor](https://github.com/newton12)
 - **LinkedIn**: [Your Profile]()
 
 ## Acknowledgments
